@@ -1,5 +1,13 @@
 <?php
 require "php/db.php";
+$page = $_GET['page'];
+$count = 5;
+
+$db_news = R::findALL('news');
+$news = array();
+foreach ($db_news as $row) {
+	$news[] = $row;
+}
 ?>
 <!DOCTYPE html>
 <html lang=ru>
@@ -18,7 +26,14 @@ require "php/db.php";
 	<section class="news">
 		<div class="news-block">
 			<div class="news-out">
-        
+        <?php for($1 = 0; $i < count($news); $i++) :?>
+        <div class="news">
+        	<a href="/news.php?id=<?php echo $news[$i]->id; ?>">
+        		<p class="title_news"><?php echo $news[$i]-title; ?></p>
+        		<p class="announce_news"><?php echo $news[$i]-announce; ?></p>
+        	</a>
+        </div>
+        <?php endfor; ?>
       </div>
       <div class="paga_list" align="center">
       	<a href="#"><button class="page_button">1</button></a>
