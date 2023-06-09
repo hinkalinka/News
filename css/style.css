@@ -76,31 +76,7 @@ body{
 	background-color: black;
 }
 
-
-.news-block{
-	display: flex;
-}
-
-.cart{
-	position: relative;
-	margin: 50px;
-	max-width: 1000px;
-	text-align: left;
-	padding: 20px;
-	border-bottom: solid white;
-}
-
-.cart div, .cart p{
- color: var(--color-light);
-}
-
-.cart button{
-	padding: 10px 20px;
-	color: var(--color-light);
-	background-color: var(--color-dark);
-}
-
-.cart button:hover{
+.page_button button:hover{
 	color: var(--color-dark);
 	background-color: var(--color-light);
 	border: 1px solid var(--color-dark);
