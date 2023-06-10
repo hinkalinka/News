@@ -144,7 +144,7 @@ section{
 }
 
 footer{
-	width: 70%;
+	width: 80%;
 	margin: 40px auto;
 }
 
@@ -161,3 +161,31 @@ footer{
 	border: 1px solid var(--color-gray);
 }
 
+.title_news_view{
+	font-size: 60px;
+	padding-bottom: 10px;
+	border-bottom: solid 4px var(--color-dark);
+	width: 80%;
+}
+
+.announce_news_view{
+	font-size: 20px;
+	width: 80%;
+}
+
+.content_news_view{
+	font-size: 30px;
+	width: 80%;
+	text-align: justify;
+}
+
+.announce_idate_view{
+	border-bottom: solid 4px var(--color-dark);
+	padding-bottom: 20px;
+	width: 80%;
+}
+
+.back{
+	font-size: 30px;
+	text-align: left;
+}
