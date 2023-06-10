@@ -18,8 +18,6 @@ $lattest_news = array_reverse($db_news);
 $page_count = floor(count($news) / $count);
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang=ru>
 	<head>
@@ -31,31 +29,34 @@ $page_count = floor(count($news) / $count);
 		<title>Новости</title>
 	</head>
 <body>
-	<header class="">
-		
+	<header>
+		<h1 class="anoncer">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+		<h4 class="anoncer_down">Sed do&nbsp;eiusmod tempor incididunt ut&nbsp;labore et&nbsp;dolore magna aliqua.</h4>
+		<img src="src/foto.jpg" class="foto" alt="foto">
 	</header>
 	<section class="news_cover">
+		<h2 class="title_new">Последние новости</h2>
 		<div class="news-block">
 			<div class="five_lattest">
         <?php for($i = 0; $i < 5; $i++) :?>
 		        <div class="news">
 		        	<a href="view.php?id=<?php echo $lattest_news[$i]->id; ?>">
-		        		<p class="title_news"><?php echo $lattest_news[$i]->title; ?></p>
-		        		<p class="announce_news"><?php echo $lattest_news[$i]->announce; ?></p>
-		        		<p class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></p>
+		        		<h3 class="title_news"><?php echo $lattest_news[$i]->title; ?></h3>
+		        		<h4 class="announce_news"><?php echo $lattest_news[$i]->announce; ?></h4>
+		        		<h3 class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></h3>
 		        	</a>
 		        </div>
         <?php endfor; ?>
       </div>
-      <p>Остальные</p>
+      <h2 class="anoncer_second">ВСЕ НОВОСТИ</h2>
 			<div class="news-out">
         <?php for($i = $page*$count; $i < ($page+1)*$count; $i++) :?>
 	        <?php if($news[$i]->id !=NULL) :?>
 		        <div class="news">
 		        	<a href="view.php?id=<?php echo $lattest_news[$i]->id; ?>">
-		        		<p class="title_news"><?php echo $lattest_news[$i]->title; ?></p>
-		        		<p class="announce_news"><?php echo $lattest_news[$i]->announce; ?></p>
-		        		<p class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></p>
+		        		<h3 class="title_news"><?php echo $lattest_news[$i]->title; ?></h3>
+		        		<h4 class="announce_news"><?php echo $lattest_news[$i]->announce; ?></h4>
+		        		<h3 class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></h3>
 		        	</a>
 		        </div>
 	        <?php endif;?>
