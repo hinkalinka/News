@@ -1,13 +1,6 @@
 <?php
 require "Php/db.php";
 
-$news_time = array();
-
-foreach($news_time as $row){
-	$time = get_time($row['id']);
-	$news_time[] = array('news' => $row, 'time'=> $time);
-}
-
 $page = $_GET['page'];
 $count = 5;
 
@@ -16,10 +9,16 @@ $news = array();
 foreach ($db_news as $row) {
 	$news[] = $row;
 }
+function sortByOrder($a, $b) {
+  return strnatcmp($a['idate'], $b['idate']);
+}
 
+usort($db_news, 'sortByOrder');
+$lattest_news = array_reverse($db_news);
 $page_count = floor(count($news) / $count);
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang=ru>
@@ -37,14 +36,26 @@ $page_count = floor(count($news) / $count);
 	</header>
 	<section class="news_cover">
 		<div class="news-block">
+			<div class="five_lattest">
+        <?php for($i = 0; $i < 5; $i++) :?>
+		        <div class="news">
+		        	<a href="view.php?id=<?php echo $lattest_news[$i]->id; ?>">
+		        		<p class="title_news"><?php echo $lattest_news[$i]->title; ?></p>
+		        		<p class="announce_news"><?php echo $lattest_news[$i]->announce; ?></p>
+		        		<p class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></p>
+		        	</a>
+		        </div>
+        <?php endfor; ?>
+      </div>
+      <p>Остальные</p>
 			<div class="news-out">
         <?php for($i = $page*$count; $i < ($page+1)*$count; $i++) :?>
 	        <?php if($news[$i]->id !=NULL) :?>
 		        <div class="news">
-		        	<a href="view.php?id=<?php echo $news[$i]->id; ?>">
-		        		<p class="title_news"><?php echo $news[$i]->title; ?></p>
-		        		<p class="announce_news"><?php echo $news[$i]->announce; ?></p>
-		        		<p class="announce_idate"><?php echo date("Y-m-d", $news[$i]->idate); ?></p>
+		        	<a href="view.php?id=<?php echo $lattest_news[$i]->id; ?>">
+		        		<p class="title_news"><?php echo $lattest_news[$i]->title; ?></p>
+		        		<p class="announce_news"><?php echo $lattest_news[$i]->announce; ?></p>
+		        		<p class="announce_idate"><?php echo date("Y-m-d", $lattest_news[$i]->idate); ?></p>
 		        	</a>
 		        </div>
 	        <?php endif;?>
