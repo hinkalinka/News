@@ -36,7 +36,9 @@ foreach ($db_news as $row) {
         <?php endfor; ?>
       </div>
       <div class="paga_list" align="center">
+      	<?php for($p = 0; $p <= $page_count; $p++) ?>
       	<a href="#"><button class="page_button">1</button></a>
+      	<?php endfor;?>
       </div>
 		</div>
 	</section>
