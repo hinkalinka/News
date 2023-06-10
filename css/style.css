@@ -73,9 +73,18 @@ a {
 body{
 	font-family: 'Inter', sans-serif;
 	position: relative;
-	background-color: black;
+}
+.news{
+	width: 600px;
+	margin: 20px;
+	padding: 20px;
+	border: solid 2px black;
+
 }
 
+.page_button{
+	padding: 10px;
+}
 .page_button button:hover{
 	color: var(--color-dark);
 	background-color: var(--color-light);
