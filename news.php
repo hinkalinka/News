@@ -62,15 +62,16 @@ $page_count = floor(count($news) / $count);
 	        <?php endif;?>
         <?php endfor; ?>
       </div>
-      <div class="paga_list" align="center">
-      	<?php for($p = 0; $p <= $page_count; $p++) :?>
-      	<a href="news.php?page=<?php echo $p; ?>"><button class="page_button"><?php echo $p + 1; ?></button></a>
-      	<?php endfor;?>
-      </div>
+      
 		</div>
 	</section>
-	<footer class="">
-		
+	<footer>
+		<h2 class="anoncer_second">СПИСОК НОВОСТЕЙ</h2>
+		<div class="paga_list" align="center">
+      	<?php for($p = 0; $p <= $page_count; $p++) :?>
+      	<a href="news.php?page=<?php echo $p; ?>" class="news_info"><button class="page_button"><?php echo $p + 1; ?></button></a>
+      	<?php endfor;?>
+      </div>
 	</footer>
 </body>
 </html>
