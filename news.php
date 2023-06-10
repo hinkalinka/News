@@ -1,5 +1,13 @@
 <?php
 require "Php/db.php";
+
+$news_time = array();
+
+foreach($news_time as $row){
+	$time = get_time($row['id']);
+	$news_time[] = array('news' => $row, 'time'=> $time);
+}
+
 $page = $_GET['page'];
 $count = 5;
 
@@ -33,7 +41,7 @@ $page_count = floor(count($news) / $count);
         <?php for($i = $page*$count; $i < ($page+1)*$count; $i++) :?>
 	        <?php if($news[$i]->id !=NULL) :?>
 		        <div class="news">
-		        	<a href="/news.php?id=<?php echo $news[$i]->id; ?>">
+		        	<a href="view.php?id=<?php echo $news[$i]->id; ?>">
 		        		<p class="title_news"><?php echo $news[$i]->title; ?></p>
 		        		<p class="announce_news"><?php echo $news[$i]->announce; ?></p>
 		        		<p class="announce_idate"><?php echo date("Y-m-d", $news[$i]->idate); ?></p>
@@ -53,3 +61,4 @@ $page_count = floor(count($news) / $count);
 		
 	</footer>
 </body>
+</html>
